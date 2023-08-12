@@ -19,6 +19,17 @@
             <p>Last Updated On: {{ user.updated_at }}</p>
         </div>
 
+        
+        <div class="d-flex">
+            <form class="m-2" action="/users/{{ user.id }}/edit">
+                <button class="btn btn-warning" type="submit">Edit</button>
+            </form>
+            <form class="m-2" action="/users/{{ user.id }}/delete" method="post">
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+        </div>
+        
+
 </body>
 
 </html>

@@ -28,18 +28,27 @@
                 {% for row in users %}
                 <tr>
                     <td>{{ row.id }}</td>
-                    <td>{{ row.first_name }}</td>
+                    <td>{{ row.first_name }} {{ row.last_name }}</td>
                     <td>{{ row.email }}</td>
                     <td>{{ row.created_at }}</td>
                     <td>
-                        <a href="/users/{{ row.id }}">Show</a>
-                        <a href="/users/{{ row.id }}/edit">Edit</a>
-                        <a href="/users/{{ row.id }}/delete">Delete</a>
+                        <div class="d-flex">
+                            <form class="m-2" action="/users/{{ row.id }}">
+                                <button class="btn btn-warning" type="submit">show</button>
+                            </form>
+                            <form class="m-2" action="/users/{{ row.id }}/edit">
+                                <button class="btn btn-warning" type="submit">Edit</button>
+                            </form>
+                            <form class="m-2" action="/users/{{ row.id }}/delete" method="post">
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <a href="/">Add A New User</a>
 
     </div>
 
